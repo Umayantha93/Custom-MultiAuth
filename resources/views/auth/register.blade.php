@@ -18,6 +18,19 @@
                 <hr>
                 <form action="{{ route('auth.create')}}" methode="post">
                 @csrf   
+                <div class="results">
+                    @if(Session::get('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+
+                    @if(Session::get('fail'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('fail') }}
+                        </div>
+                    @endif
+                </div>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Enter Name">
@@ -48,9 +61,9 @@
 
 
                                     <div class="form-group">
-                                    <label for="is_admin">Choose a User Type:</label>
+                                    <label for="user_types">Choose a User Type:</label>
                                         <br>
-                                            <select name="user_types" id="user_types">
+                                            <select name="is_admin" id="is_admin">
                                             <option value= 1 >Admin</option>
                                             <option value= 0 >User</option>
                                             </select> 
@@ -63,7 +76,7 @@
                         <button type="submit" class="btn btn-block btn-primary">Register</button>
                     </div>
                     <br>
-                    <a href="register">Create an new Account now!!</a>
+                    <a href="login">I already have an Account!!</a>
                 </form>
             </div>
         </div>
