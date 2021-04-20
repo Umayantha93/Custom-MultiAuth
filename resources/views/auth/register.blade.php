@@ -16,7 +16,7 @@
             <div class="col-md-4 col-md-offset-offset-4">
             <h3>User Registration</h3>
                 <hr>
-                <form action="{{ route('auth.create')}}" methode="post">
+                <form action="{{ route('auth.create') }}" method="post">
                 @csrf   
                 <div class="results">
                     @if(Session::get('success'))
@@ -33,19 +33,19 @@
                 </div>
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                        <input type="text" class="form-control" name="name"  placeholder="Enter Name">
                         <span class="text-danger">@error('name'){{$message}} @enderror</span>
                     </div>
                     <br>
                     <div class="form-group">
                     <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Enter Email">
+                        <input type="text" class="form-control" name="email"  placeholder="Enter Email">
                         <span class="text-danger">@error('email'){{$message}} @enderror</span>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="email">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        <input type="password" class="form-control" name="password"  placeholder="Enter Password">
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
                     </div>
                     <br>

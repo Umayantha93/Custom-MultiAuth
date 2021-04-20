@@ -16,15 +16,25 @@
             <div class="col-md-4 col-md-offset-offset-4">
             <h3>User Login</h3>
                 <hr>
-                <form action="">
+                <form action="{{ route('auth.check') }}" method="post">
+                @csrf
+                <div class="results">
+                    @if(Session::get('fail'))
+                        <div class="alert alert-danger">
+                        {{(Session::get('fail'))}}
+                        </div>
+                    @endif
+                </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Enter Email">
+                        <input type="text" class="form-control" name="email" value="{{old('email')}}" placeholder="Enter Email">
+                        <span class="text-danger">@error('email') {{$message}} @enderror</span>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="email">Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                        <span class="text-danger">@error('password') {{$message}} @enderror</span>
                     </div>
                     <br>
                     <div class="form-group">
